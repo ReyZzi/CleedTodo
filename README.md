@@ -32,11 +32,5 @@ Pour démarrer l'application en mode développement, exécutez :
 
 ```bash
 pnpm run dev
-
-## Fonctionnalités 🌟
-
-- **Ajout de tâches**: Interface utilisateur simple pour ajouter de nouvelles tâches.
-- **Marquage comme complété**: Cliquez sur une tâche pour marquer comme complétée.
-- **Suppression de tâches**: Supprimez les tâches que vous ne souhaitez plus voir.
-- **Filtrage**: Filtrez les tâches affichées selon qu'elles soient toutes, actives ou complétées.
+```
 
