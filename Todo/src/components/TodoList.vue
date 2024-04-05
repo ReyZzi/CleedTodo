@@ -81,7 +81,6 @@ import NavTodo from "./NavTodo.vue";
 
 const store = useStore();
 
-// Récupération des todos et du filtre depuis le store
 const todos = computed<Todo[]>(() => store.state.todo.todos);
 const filteredTodos = computed<Todo[]>(
   () => store.getters["todo/filteredTodos"]
@@ -95,7 +94,6 @@ const TodoSchema = z.object({
   completed: z.boolean(),
 });
 
-// Fonctions pour la gestion des todos
 const completeSelectedTodos = () => {
   todos.value
     .filter((todo) => !todo.completed)
