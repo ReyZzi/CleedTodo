@@ -34,3 +34,15 @@ Pour démarrer l'application en mode développement, exécutez :
 pnpm run dev
 ```
 
+## Fonctionnalités 🌟
+
+- **Ajout de tâches**:
+- **Page 404 mauvaise url**:
+- **Modification de tâches possible**
+- **Marquage de tâches comme completes ou supprimées (seul ou toutes)**
+- **NavBar & Routing**
+- **NavBar pour naviguer entre taches finites en cours et all**
+- **Vuex Store & Local Storage pour données persistentes**
+- **Quelques tests basics**
+
+
