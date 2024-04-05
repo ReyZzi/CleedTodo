@@ -1,11 +1,9 @@
 // nav.ts
 import { Commit } from "vuex";
-
 export interface NavItem {
   name: string;
   to: string;
 }
-
 interface State {
   currentNavItem: NavItem["name"];
   nav: NavItem[];

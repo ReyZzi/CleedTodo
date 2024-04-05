@@ -1,18 +1,15 @@
 // todo.ts
 import { Commit } from "vuex";
-
 export interface Todo {
   id: number;
   text: string;
   completed: boolean;
   Selected?: boolean;
 }
-
 export interface NavTodoView {
   name: string;
   current: boolean;
 }
-
 interface State {
   todos: Todo[];
   filter: NavTodoView["name"];

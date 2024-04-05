@@ -1,5 +1,4 @@
 <!-- ViewTodos.vue -->
-
 <template>
   <TodoList />
 </template>
