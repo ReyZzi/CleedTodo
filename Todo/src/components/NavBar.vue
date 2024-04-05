@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { NavItem } from "../store/nav";
@@ -36,4 +36,12 @@ const updateCurrent = (clickeditem: NavItem) => {
 const currentNavItem = computed<NavItem["name"]>(
   () => store.state.nav.currentNavItem
 );
+
+// watcher pour mettre a jour l'élément actif si changement d'url manuel
+watch(route, (newRoute) => {
+  const matchingNavItem = nav.value.find((item) => item.to === newRoute.path);
+  if (matchingNavItem) {
+    updateCurrent(matchingNavItem);
+  }
+});
 </script>
