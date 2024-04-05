@@ -43,6 +43,5 @@ pnpm run dev
 - **NavBar & Routing**
 - **NavBar pour naviguer entre taches finites en cours et all**
 - **Vuex Store & Local Storage pour données persistentes**
-- **Quelques tests basics**
 
 
