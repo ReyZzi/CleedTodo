@@ -1,6 +1,6 @@
 # Todo List avec Vue.js, Vuex, et TypeScript 📝✅
 
-Une application Todo List simple et élégante développée avec Vue.js 3, Vuex pour la gestion d'état, Vite et TypeScript pour le typage statique. 
+Une application développée avec Vue.js 3, Vuex pour la gestion d'état, Vite et TypeScript pour le typage statique. 
 
 ## Prérequis 🛠️
 
