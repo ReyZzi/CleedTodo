@@ -39,9 +39,9 @@ pnpm run dev
 - **Ajout de tâches**:
 - **Page 404 mauvaise url**:
 - **Modification de tâches possible**
-- **Marquage de tâches comme completes ou supprimées (seul ou toutes)**
+- **Marquage de tâches comme complètes ou supprimées (individuellement ou toutes en même temps)**
 - **NavBar & Routing**
-- **NavBar pour naviguer entre taches finites en cours et all**
+- **NavBar pour naviguer entre tâches finies, en cours et toutes**
 - **Vuex Store & Local Storage pour données persistentes**
 
 
