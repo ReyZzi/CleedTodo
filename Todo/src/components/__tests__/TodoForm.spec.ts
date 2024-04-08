@@ -14,7 +14,6 @@ describe("Add to list", () => {
 
     // Trigger click button
     await form.trigger("submit.prevent");
-    await wrapper.vm.$nextTick();
 
     const inputElement = wrapper.find("input");
     const errorMessage = wrapper.find("#error");
