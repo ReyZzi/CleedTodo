@@ -25,7 +25,10 @@ Suivez ces étapes pour installer le projet localement :
     ```bash
     pnpm install
     ```
-
+4. Lancer des tests :
+    ```bash
+    pnpm run test
+    ```
 ## Lancement 🚀
 
 Pour démarrer l'application en mode développement, exécutez :
@@ -43,5 +46,6 @@ pnpm run dev
 - **NavBar & Routing**
 - **NavBar pour naviguer entre tâches finies, en cours et toutes**
 - **Vuex Store & Local Storage pour données persistentes**
+
 
 
