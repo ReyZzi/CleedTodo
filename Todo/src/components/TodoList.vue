@@ -1,73 +1,65 @@
 <!-- TodoList.vue -->
 <template>
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <h1
-      class="mt-4 ml-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl"
-    >
-      TodoList View
-    </h1>
-    <NavTodo />
-    <div class="mx-auto max-w-2xl">
-      <ul>
-        <li
-          v-for="todo in filteredTodos"
-          :key="todo.id"
-          class="flex items-center space-x-2 space-y-4"
+  <div class="mx-auto max-w-2xl">
+    <ul>
+      <li
+        v-for="todo in filteredTodos"
+        :key="todo.id"
+        class="flex items-center space-x-2 space-y-4"
+      >
+        <span
+          v-if="!isEditing[todo.id]"
+          :class="{ 'line-through': todo.completed }"
+          class="flex-grow font-semi-bold"
+          >{{ todo.text }}</span
         >
-          <span
-            v-if="!isEditing[todo.id]"
-            :class="{ 'line-through': todo.completed }"
-            class="flex-grow font-semi-bold"
-            >{{ todo.text }}</span
-          >
-          <input
-            v-else
-            v-model="editedText[todo.id]"
-            @blur="stopEditing(todo.id)"
-            @keyup.enter="stopEditing(todo.id)"
-            class="border rounded px-2 py-1 mt-4 flex-grow"
-          />
-          <button
-            v-if="filter === 'active' || (filter === 'all' && !todo.completed)"
-            @click="
-              isEditing[todo.id] ? stopEditing(todo.id) : startEditing(todo.id)
-            "
-            @mousedown.prevent
-            class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            {{ isEditing[todo.id] ? "Valider" : "Modifier" }}
-          </button>
-          <button
-            v-if="filter === 'active' || (filter === 'all' && !todo.completed)"
-            @click="toggleTodo(todo.id)"
-            class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Compléter
-          </button>
-          <button
-            @click="removeTodo(todo.id)"
-            class="rounded-md bg-red-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-          >
-            Supprimer
-          </button>
-        </li>
-      </ul>
-      <div class="mt-12">
+        <input
+          v-else
+          v-model="editedText[todo.id]"
+          @blur="stopEditing(todo.id)"
+          @keyup.enter="stopEditing(todo.id)"
+          class="border rounded px-2 py-1 mt-4 flex-grow"
+        />
         <button
-          v-if="filter === 'active'"
-          @click="removeSelectedTodos"
-          class="rounded-md bg-indigo-600 px-2.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          v-if="filter === 'active' || (filter === 'all' && !todo.completed)"
+          @click="
+            isEditing[todo.id] ? stopEditing(todo.id) : startEditing(todo.id)
+          "
+          @mousedown.prevent
+          class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Tout Supprimer
+          {{ isEditing[todo.id] ? "Validate" : "Edit" }}
         </button>
         <button
-          v-if="filter === 'active'"
-          @click="completeSelectedTodos"
-          class="ml-5 rounded-md bg-indigo-600 px-2.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          v-if="filter === 'active' || (filter === 'all' && !todo.completed)"
+          @click="toggleTodo(todo.id)"
+          class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Tout compléter
+          Complete
         </button>
-      </div>
+        <button
+          @click="removeTodo(todo.id)"
+          class="rounded-md bg-red-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+        >
+          Delete
+        </button>
+      </li>
+    </ul>
+    <div class="mt-12">
+      <button
+        v-if="filter === 'active'"
+        @click="removeSelectedTodos"
+        class="rounded-md bg-indigo-600 px-2.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        Delete all
+      </button>
+      <button
+        v-if="filter === 'active'"
+        @click="completeSelectedTodos"
+        class="ml-5 rounded-md bg-indigo-600 px-2.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        Complete all
+      </button>
     </div>
   </div>
 </template>
@@ -77,7 +69,6 @@ import { computed, nextTick, reactive } from "vue";
 import { useStore } from "vuex";
 import { z } from "zod";
 import { NavTodoView, Todo } from "../store/todo";
-import NavTodo from "./NavTodo.vue";
 
 const store = useStore();
 
@@ -87,7 +78,6 @@ const filteredTodos = computed<Todo[]>(
 );
 const filter = computed<NavTodoView["name"]>(() => store.state.todo.filter);
 
-// Schéma pour la validation des todos
 const TodoSchema = z.object({
   id: z.number(),
   text: z.string(),

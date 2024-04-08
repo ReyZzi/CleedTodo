@@ -5,7 +5,6 @@
     aria-label="Sidebar"
   >
     <div v-for="item in nav" :key="item.name">
-      <!-- Met à jour l'élément actuel lors du clic -->
       <a
         :class="[
           item.current

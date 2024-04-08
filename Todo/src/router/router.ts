@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 
 import AddTodos from "../views/AddTodos.vue";
 import NotFound from "../views/NotFound.vue";

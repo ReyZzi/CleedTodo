@@ -37,7 +37,13 @@ const currentNavItem = computed<NavItem["name"]>(
   () => store.state.nav.currentNavItem
 );
 
-// watcher pour mettre a jour l'élément actif si changement d'url manuel
+// Watcher to update the active item if there is a manual URL change
+watch(route, (newRoute) => {
+  const matchingNavItem = nav.value.find((item) => item.to === newRoute.path);
+  if (matchingNavItem) {
+    updateCurrent(matchingNavItem);
+  }
+});
 watch(route, (newRoute) => {
   const matchingNavItem = nav.value.find((item) => item.to === newRoute.path);
   if (matchingNavItem) {

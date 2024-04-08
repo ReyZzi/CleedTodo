@@ -1,6 +1,5 @@
 <!-- App.vue -->
 <template>
-  <!-- Navbar est le composant de la barre de navigation horizontale -->
   <header>
     <Navbar />
   </header>

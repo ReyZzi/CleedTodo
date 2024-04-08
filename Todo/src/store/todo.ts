@@ -47,7 +47,7 @@ const mutations = {
   removeTodo(state: State, todoId: number) {
     state.todos = state.todos.filter((todo: Todo) => todo.id !== todoId);
   },
-  // Met à jour le filtre actuel et met à jour l'état 'current' des éléments de navigation
+  // Updates the current filter and updates the 'current' status of navigation elements
   setFilter(state: State, filter: NavTodoView["name"]) {
     state.filter = filter;
     state.navView.forEach((item) => {
@@ -80,7 +80,7 @@ const actions = {
 };
 
 const getters = {
-  // Renvoie les todos en fonction du filtre actuel
+  // Returns todos according to the current filter
   filteredTodos: (state: State) => {
     switch (state.filter) {
       case "all":
