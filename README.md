@@ -45,7 +45,7 @@ pnpm run dev
 - **Marquage de tâches comme complètes ou supprimées (individuellement ou toutes en même temps)**
 - **NavBar & Routing**
 - **NavBar pour naviguer entre tâches finies, en cours et toutes**
-- **Vuex Store & Local Storage pour données persistentes (localStorage.clear(); dans console pour clear)**
+- **Vuex Store & Local Storage pour données persistentes**
 
 
 
