@@ -25,7 +25,7 @@ Suivez ces étapes pour installer le projet localement :
     ```bash
     pnpm install
     ```
-4. Lancer des tests :
+4. Lancer des tests (vitest):
     ```bash
     pnpm run test
     ```
